@@ -1,0 +1,99 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <!--<div class="md-toolbar-tools">-->
+        <div id="papelparede">
+          
+        </div>
+
+        <div>
+          <div style="width: 100%; margin-left: 1%; margin-top: 2%;">
+            <h4>Software de Gestão em Empreendimentos Rurais</h4>
+          </div>
+
+          <div id="anos" class="item item-input item-select">
+
+            <select ng-model="numeroDeAnos" ng-change="alterarNumeroDeAnos(numeroDeAnos)" >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <div>
+            </select>
+          </div>
+
+          <div id="investimentoLado" class="col">
+            <label id="investimento" class="item item-input">
+              <input type="number" placeholder="Investimento" ng-model="dados[0].investimento">
+            </label>
+          </div>
+
+          <div>
+            <button onclick="javascript: calc();" style="border-radius: 60%; height: 35px; width: 35px; background-color: #fff" class="md-fab md-primary md-button md-ink-ripple">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
+                <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      
+      <div id="rolagem1">
+      <div style="background-color: #DCDCDC;" >
+        <div class="row">
+
+          <div class="col">Receita</div>
+          <div class="col">Custo</div>
+          <div class="col">Fluxo de Caixa</div>
+          <div class="col" ng-repeat="taxa in taxasDeDesconto track by $index">Taxa %</div>
+
+        </div>
+
+        <div class="row">
+          <div class="col"><label>
+              <input id="camposbaixo" readonly  type="number" value="{{calcularSomaDaReceita()}}">
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              <input id="camposbaixo" readonly  type="number" value="{{calcularSomaDoCusto()}}">
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              <input id="camposbaixo" readonly  type="number" value="{{calcularSomaDoFluxoDeCaixa()}}">
+            </label>
+          </div>
+          <div class="col" ng-repeat="taxa in taxasDeDesconto">
+            <label>
+              <input id="camposbaixo" readonly  type="number" value="{{calcularSomaDaPorcentagem(((+taxa) / 100) + 1) | number : 2 }}">
+            </label>
+          </div>
+        </div>
+      <div>
+      </div>
+      <!-- target="_blank" -->
+      <div class="row" style="width: 100%; margin-top: 5px; padding: 0">
+        <a href="#/tab/chats"><input type="button" value="Anterior" style="border-top-right-radius: 40px 40px; border-bottom-right-radius: 40px 40px; height: 30px; width: 230%; border-color: #CFCFCF; background-color: #E8E8E8; margin-left: 0%;" /></a>
+      </div>
+  </ion-content>
+</ion-view>
